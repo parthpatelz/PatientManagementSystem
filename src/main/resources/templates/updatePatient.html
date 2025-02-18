@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Patient</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+          background-color: #f8f9fa;
+        }
+        h1 {
+          color: #343a40;
+        }
+        form {
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+        td {
+          padding: 10px;
+        }
+        input[type="text"], input[type="email"], input[type="submit"] {
+          width: 100%;
+          padding: 10px;
+          margin-top: 5px;
+          border: 1px solid #ced4da;
+          border-radius: 4px;
+        }
+        input[type="submit"] {
+          background-color: #007bff;
+          color: white;
+          cursor: pointer;
+        }
+        input[type="submit"]:hover {
+          background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<form action="#" th:action="@{/updatePatient}" th:object="${patient}" method="post">
+    <h1>Update Patient</h1>
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td><input type="text" th:field="*{id}" readonly></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}" placeholder="Name"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input type="text" th:field="*{age}" placeholder="Age"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <select th:field="*{gender}" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" th:field="*{email}" placeholder="Email" required></td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td><input type="text" th:field="*{city}" placeholder="City" required></td>
+        </tr>
+        <tr>
+            <td>Date of Birth:</td>
+            <td><input type="date" th:field="*{dateOfBirth}" required></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center;">
+                <input type="submit" value="Update Patient">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
